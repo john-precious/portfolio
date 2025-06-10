@@ -1,0 +1,136 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Creative Web Designer | DevPrex</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Inter&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  
+  
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #fdfdfd;
+      color: #2b2b2b;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: #121212;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      margin: 0;
+    }
+
+    .hero {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #555;
+    }
+
+    .robot {
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      width: 80px;
+      z-index: 1000;
+      transition: transform 0.3s ease;
+    }
+  </style>
+</head>
+  <body>
+    <header>
+      <button id="theme-toggle">🌓</button>
+    <h1>DevPrex</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="services.html">service</a>
+      <a href="about.html">About</a>
+      <a href="portfolio.html">portfolio</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+  
+  
+  <section class="hero fade-in">
+    <div class="hero-text">
+      <h2>Hi, I'm DevPrex</h2>
+      <p>A creative web designer & developer crafting engaging digital experiences.</p>
+      <a href="portfolio.html" class="btn">View My Work</a>
+    </div>
+  </section>
+  
+  <section class="skills fade-in">
+    <h3>Skills</h3>
+    <div class="skill-bar">
+      <label>HTML</label>
+      <div class="bar">
+        <div class="fill" style="width: 95%;"></div>
+      </div>
+    </div>
+    <div class="skill-bar">
+      <label>CSS</label>
+      <div class="bar">
+        <div class="fill" style="width: 90%;"></div>
+      </div>
+    </div>
+    <div class="skill-bar">
+      <label>JavaScript</label>
+      <div class="bar">
+        <div class="fill" style="width: 85%;"></div>
+      </div>
+    </div>
+   <div class="skill-bar">
+      <label>UI/UX</label>
+      <div class="bar">
+        <div class="fill" style="width: 80%;"></div>
+      </div>
+    </div>
+  </section>
+  
+  <script src="script.js"></script>
+  
+
+  <!-- Robot -->
+  <img src="../../robot1.png" alt="Robot" class="robot" id="robot" />
+
+  <script>
+    const robot = document.getElementById('robot');
+
+    document.addEventListener('mousemove', (e) => {
+      const rect = robot.getBoundingClientRect();
+      const robotX = rect.left + rect.width / 2;
+      const robotY = rect.top + rect.height / 2;
+
+      const dx = e.clientX - robotX;
+      const dy = e.clientY - robotY;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+
+      if (distance < 250) {
+        const angle = Math.atan2(dy, dx) * (180 / Math.PI);
+        robot.style.transform = `rotate(${angle}deg)`;
+      } else {
+        robot.style.transform = `rotate(0deg)`;
+      }
+    });
+  </script>
+<link rel="stylesheet" href="style.css">
+</body>
+</html>
